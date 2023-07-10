@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ###ZARF_VAR_NAME###-configmap
+  namespace: leapfrogai
+  labels:
+    leapfrogai: yeah
+data:
+  models.toml: |
+    [###ZARF_VAR_NAME###]
+        [###ZARF_VAR_NAME###.metadata]
+            owned_by    = 'Defense Unicorns second dynamic'
+            permission  = []
+            description = 'I just repeat back what you said'
+        [###ZARF_VAR_NAME###.network]
+            url = '###ZARF_VAR_NAME###:50051'
+            type = 'gRPC'

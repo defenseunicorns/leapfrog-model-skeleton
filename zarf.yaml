@@ -1,0 +1,24 @@
+kind: ZarfPackageConfig
+metadata:
+  name: leapfrogai-model
+  version: 0.2.1 # maybe this lives in the LF repo?
+  description: >
+    An awesome model to add to LeapfrogAI
+
+constants:
+  - name: VERSION
+    default: ###ZARF_PKG_TMPL_VERSION###
+  - name: NAME
+    default: ###ZARF_PKG_TMPL_NAME###
+
+components:
+  - name: model
+    required: true
+    charts:
+    - name: leapfrogai-model
+      namespace: leapfrogai
+      localPath: chart
+      version: 0.2.1
+    # images:
+      # - "###ZARF_PKG_TMPL_IMAGE_REPOSITORY###:###ZARF_PKG_TMPL_VERSION###"
+
