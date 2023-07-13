@@ -5,6 +5,8 @@ metadata:
   labels:
     {{- include "chart.labels" . | nindent 4 }}
 spec:
+  strategy:
+    type: Recreate
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -37,14 +39,16 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
+          # livenessProbe:
+          #   grpc:
+          #     port: 50051
+          #   periodSeconds: 30
+          #   failureThreshold: 6
+          # readinessProbe:
+          #   grpc:
+          #     port: 50051
+          #   periodSeconds: 30
+          #   failureThreshold: 6
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
