@@ -4,14 +4,11 @@ metadata:
   name: ###ZARF_VAR_NAME###-configmap
   namespace: leapfrogai
   labels:
-    leapfrogai: yeah
+    leapfrogai: sparkle
 data:
   models.toml: |
-    [###ZARF_VAR_NAME###]
-        [###ZARF_VAR_NAME###.metadata]
-            owned_by    = 'Defense Unicorns second dynamic'
-            permission  = []
-            description = 'I just repeat back what you said'
-        [###ZARF_VAR_NAME###.network]
-            url = '{{ include "chart.fullname" . }}:50051'
-            type = 'gRPC'
+    [[models]]
+        owned_by    = 'Defense Unicorns'
+        backend     = '{{ include "chart.fullname" . }}:50051'
+        type        = 'gRPC'
+        name        = '###ZARF_VAR_NAME###'
