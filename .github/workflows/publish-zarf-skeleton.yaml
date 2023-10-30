@@ -24,4 +24,4 @@ jobs:
       uses: defenseunicorns/setup-zarf@main
 
     - name: Publish Zarf Package Skeleton
-      run: zarf package publish . oci://ghcr.io/defenseunicorns/packages
+      run: zarf package publish . oci://ghcr.io/defenseunicorns/packages/leapfrogai
