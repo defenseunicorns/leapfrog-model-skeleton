@@ -1,6 +1,6 @@
 kind: ZarfPackageConfig
 metadata:
-  name: lfai-model
+  name: leapfrogai-model
   version: 0.3.5
   description: >
     An awesome model to add to LeapfrogAI
