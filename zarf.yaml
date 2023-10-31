@@ -1,15 +1,32 @@
 kind: ZarfPackageConfig
 metadata:
-  name: lfai-model
-  version: 0.3.5
+  name: leapfrogai-model
+  version: 0.4.0
   description: >
     An awesome model to add to LeapfrogAI
 
+
 constants:
-  - name: VERSION
-    value: "###ZARF_PKG_TMPL_VERSION###"
+  - name: IMAGE_VERSION
+    value: "###ZARF_PKG_TMPL_IMAGE_VERSION###"
   - name: NAME
     value: "###ZARF_PKG_TMPL_NAME###"
+  - name: IMAGE_REPOSITORY
+    value: "###ZARF_PKG_TMPL_IMAGE_REPOSITORY###"
+
+variables:
+  - name: LIMITS_CPU
+    default: "0"
+  - name: LIMITS_MEMORY
+    default: "0"
+  - name: LIMITS_GPU
+    default: "0"
+  - name: REQUESTS_CPU
+    default: "0"
+  - name: REQUESTS_MEMORY
+    default: "0"
+  - name: REQUESTS_GPU
+    default: "0"
 
 components:
   - name: model
@@ -21,5 +38,5 @@ components:
       releaseName: "###ZARF_PKG_TMPL_NAME###-model"
       version: 0.3.5
     images:
-      - "###ZARF_PKG_TMPL_IMAGE_REPOSITORY###:###ZARF_PKG_TMPL_VERSION###"
+      - "###ZARF_PKG_TMPL_IMAGE_REPOSITORY###:###ZARF_PKG_TMPL_IMAGE_VERSION###"
 

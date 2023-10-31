@@ -5,13 +5,13 @@
 replicaCount: 1
 
 image:
-  repository: "###ZARF_VAR_IMAGE_REPOSITORY###"
+  repository: "###ZARF_CONST_IMAGE_REPOSITORY###"
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "###ZARF_VAR_VERSION###"
+  tag: "###ZARF_CONST_IMAGE_VERSION###"
 
 imagePullSecrets: []
-nameOverride: "###ZARF_VAR_NAME###"
+nameOverride: "###ZARF_CONST_NAME###"
 fullnameOverride: ""
 
 serviceAccount:
