@@ -1,7 +1,7 @@
 kind: ZarfPackageConfig
 metadata:
   name: leapfrogai-model
-  version: 0.4.0
+  version: 0.4.1
   description: >
     An awesome model to add to LeapfrogAI
 
@@ -39,4 +39,3 @@ components:
       version: 0.3.5
     images:
       - "###ZARF_PKG_TMPL_IMAGE_REPOSITORY###:###ZARF_PKG_TMPL_IMAGE_VERSION###"
-
