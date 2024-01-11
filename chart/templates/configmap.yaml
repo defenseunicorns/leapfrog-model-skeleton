@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: ###ZARF_CONST_NAME###-configmap
+  name: "###ZARF_CONST_NAME###-configmap"
   namespace: leapfrogai
   labels:
     leapfrogai: sparkle
