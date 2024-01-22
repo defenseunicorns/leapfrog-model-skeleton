@@ -4,7 +4,7 @@
 
 # Core Zarf Package
 /chart/ @gerred @YrrepNoj @gphorvath
-/zarf.yaml @gerred YrrepNoj @gphorvath
+/zarf.yaml @gerred @YrrepNoj @gphorvath
 
 # Pipeline and Project Files
 /.github/ @gerred @YrrepNoj @gphorvath
