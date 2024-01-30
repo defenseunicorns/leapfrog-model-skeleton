@@ -1,0 +1,15 @@
+name: Zarf Schema
+on: [pull_request]
+
+jobs:
+  schema-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Install Zarf
+        uses: defenseunicorns/setup-zarf@f95763914e20e493bb5d45d63e30e17138f981d6 # v1.0.0
+
+      - name: Validate Zarf Schema
+        run: zarf prepare lint .
