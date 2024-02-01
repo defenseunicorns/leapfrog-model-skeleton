@@ -19,10 +19,10 @@ To test a package locally, you first need a running cluster and an example model
 docker run -d -p 5000:5000 --restart=always --name registry registry:2
 
 # publish the skeleton to the local registry
-zarf package publish . localhost:5000/defenseunicorns/packages/leapfrogai/leapfrogai-model:<IMAGE_TAG> 
+zarf package publish . oci://localhost:5000/defenseunicorns/packages/leapfrogai --insecure
 
 # create model backend package using local skeleton
 # this example will use leapfrogai-backend-whisper
 # edit the import-model componenet to use image: localhost:5000/defenseunicorns/packages/leapfrogai/leapfrogai-model:<IMAGE_TAG> 
-zarf package create
+zarf package create --insecure
 ```
