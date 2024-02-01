@@ -1,7 +1,7 @@
 kind: ZarfPackageConfig
 metadata:
   name: leapfrogai-model
-  version: 0.4.1
+  version: 0.5.0
   description: >
     An awesome model to add to LeapfrogAI
 
@@ -15,6 +15,11 @@ constants:
     value: "###ZARF_PKG_TMPL_IMAGE_REPOSITORY###"
 
 variables:
+  - name: GPU_ENABLED
+    description: Optionally turn on GPU inferencing (true/false)
+    default: false
+    prompt: true
+    pattern: "^(true|false)$"
   - name: LIMITS_CPU
     default: "0"
   - name: LIMITS_MEMORY
@@ -36,6 +41,6 @@ components:
       namespace: leapfrogai
       localPath: chart
       releaseName: "###ZARF_PKG_TMPL_NAME###-model"
-      version: 0.3.5
+      version: 0.4.0
     images:
       - "###ZARF_PKG_TMPL_IMAGE_REPOSITORY###:###ZARF_PKG_TMPL_IMAGE_VERSION###"

@@ -39,18 +39,27 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          # livenessProbe:
-          #   grpc:
-          #     port: 50051
-          #   periodSeconds: 30
-          #   failureThreshold: 6
-          # readinessProbe:
-          #   grpc:
-          #     port: 50051
-          #   periodSeconds: 30
-          #   failureThreshold: 6
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            limits:
+              cpu: {{ .Values.limits.cpu }}
+              memory: {{ .Values.limits.memory }}
+              {{ - if and (.Values.gpuEnabled) (eq .Values.limits.gpu 0) }}
+              nvidia.com/gpu: "1"
+              {{ - else if (.Values.gpuEnabled) }}
+              nvidia.com/gpu: {{ .Values.limits.gpu }}
+              {{ - else }}
+              nvidia.com/gpu: "0"
+              {{ - end }}
+            requests:
+              cpu: {{ .Values.requests.cpu }}
+              memory: {{ .Values.requests.memory }}
+              {{ - if and (.Values.gpuEnabled) (eq .Values.requests.gpu 0) }}
+              nvidia.com/gpu: "1"
+              {{ - else if (.Values.gpuEnabled) }}
+              nvidia.com/gpu: {{ .Values.requests.gpu }}
+              {{ - else }}
+              nvidia.com/gpu: "0"
+              {{ - end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
