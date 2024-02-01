@@ -27,7 +27,6 @@ podAnnotations: {}
 
 podSecurityContext:
   runAsNonRoot: true
-  runAsGroup: 1000
 
 securityContext: {}
 
@@ -35,7 +34,7 @@ service:
   type: ClusterIP
   port: 50051
 
-gpu_enabled: "###ZARF_VAR_GPU_ENABLED###"
+gpuEnabled: "###ZARF_VAR_GPU_ENABLED###"
 
 limits:
   cpu: "###ZARF_VAR_LIMITS_CPU###"
