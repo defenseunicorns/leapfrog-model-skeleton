@@ -39,25 +39,11 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          env:
+            - name: GPU_ENABLED
+              value: {{ (quote .Values.gpuEnabled) | default "false"}}
           resources:
-            limits:
-              cpu: {{ .Values.limits.cpu }}
-              memory: {{ .Values.limits.memory }}{{ if and (eq .Values.gpuEnabled "true") (eq .Values.limits.gpu "0") }}
-              nvidia.com/gpu: 1
-              {{ else if (eq .Values.gpuEnabled "true") }}
-              nvidia.com/gpu: {{ .Values.limits.gpu }}
-              {{ else }}
-              nvidia.com/gpu: 0
-              {{ end }}
-            requests:
-              cpu: {{ .Values.requests.cpu }}
-              memory: {{ .Values.requests.memory }}{{ if and (eq .Values.gpuEnabled "true") (eq .Values.requests.gpu "0") }}
-              nvidia.com/gpu: 1
-              {{ else if (eq .Values.gpuEnabled "true") }}
-              nvidia.com/gpu: {{ .Values.requests.gpu }}
-              {{ else }}
-              nvidia.com/gpu: 0
-              {{ end }}
+            {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

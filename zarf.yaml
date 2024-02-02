@@ -20,18 +20,26 @@ variables:
     default: "false"
     prompt: true
     pattern: "^(true|false)$"
-  - name: LIMITS_CPU
-    default: "0"
-  - name: LIMITS_MEMORY
-    default: "0"
-  - name: LIMITS_GPU
-    default: "0"
   - name: REQUESTS_CPU
-    default: "0"
+    description: Number of CPU(s) to reserve for the pod
+    default: "1"
   - name: REQUESTS_MEMORY
-    default: "0"
+    description: Amount of memory to reserve for the pod
+    default: "4Gi"
   - name: REQUESTS_GPU
+    description: Must be greater or equal to 1 if GPU_ENABLED is true
     default: "0"
+    prompt: true
+  - name: LIMITS_CPU
+    description: Maximum number of CPU(s) the pod may flex up to
+    default: "1"
+  - name: LIMITS_MEMORY
+    description: Maximum amount of memory the pod may flex up to
+    default: "20Gi"
+  - name: LIMITS_GPU
+    description: Must be greater than or equal to REQUESTS_GPU
+    default: "0"
+    prompt: true
 
 components:
   - name: model
