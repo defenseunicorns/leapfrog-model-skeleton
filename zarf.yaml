@@ -31,10 +31,10 @@ variables:
     default: "0"
     prompt: true
   - name: LIMITS_CPU
-    description: Maximum number of CPU(s) the pod may flex up to
+    description: Must be greater than or equal to REQUESTS_CPU
     default: "1"
   - name: LIMITS_MEMORY
-    description: Maximum amount of memory the pod may flex up to
+    description: Must be greater than or equal to REQUESTS_MEMORY
     default: "20Gi"
   - name: LIMITS_GPU
     description: Must be greater than or equal to REQUESTS_GPU
