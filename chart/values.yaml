@@ -39,11 +39,11 @@ gpuEnabled: "###ZARF_VAR_GPU_ENABLED###"
 limits:
   cpu: "###ZARF_VAR_LIMITS_CPU###"
   memory: "###ZARF_VAR_LIMITS_MEMORY###"
-  nvidia.com/gpu: "###ZARF_VAR_LIMITS_GPU###"
+  gpu: "###ZARF_VAR_LIMITS_GPU###"
 requests:
   cpu: "###ZARF_VAR_REQUESTS_CPU###"
   memory: "###ZARF_VAR_REQUESTS_MEMORY###"
-  nvidia.com/gpu: "###ZARF_VAR_REQUESTS_GPU###"
+  gpu: "###ZARF_VAR_REQUESTS_GPU###"
 
 autoscaling:
   enabled: false

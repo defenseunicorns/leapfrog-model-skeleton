@@ -17,7 +17,7 @@ constants:
 variables:
   - name: GPU_ENABLED
     description: Optionally turn on GPU inferencing (true/false)
-    default: false
+    default: "false"
     prompt: true
     pattern: "^(true|false)$"
   - name: LIMITS_CPU

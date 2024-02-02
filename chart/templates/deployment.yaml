@@ -42,8 +42,7 @@ spec:
           resources:
             limits:
               cpu: {{ .Values.limits.cpu }}
-              memory: {{ .Values.limits.memory }}
-              {{ if and (eq .Values.gpuEnabled "true") (eq .Values.limits.gpu "0") }}
+              memory: {{ .Values.limits.memory }}{{ if and (eq .Values.gpuEnabled "true") (eq .Values.limits.gpu "0") }}
               nvidia.com/gpu: 1
               {{ else if (eq .Values.gpuEnabled "true") }}
               nvidia.com/gpu: {{ .Values.limits.gpu }}
@@ -52,8 +51,7 @@ spec:
               {{ end }}
             requests:
               cpu: {{ .Values.requests.cpu }}
-              memory: {{ .Values.requests.memory }}
-              {{ if and (eq .Values.gpuEnabled "true") (eq .Values.requests.gpu "0") }}
+              memory: {{ .Values.requests.memory }}{{ if and (eq .Values.gpuEnabled "true") (eq .Values.requests.gpu "0") }}
               nvidia.com/gpu: 1
               {{ else if (eq .Values.gpuEnabled "true") }}
               nvidia.com/gpu: {{ .Values.requests.gpu }}
