@@ -1,0 +1,28 @@
+apiVersion: uds.dev/v1alpha1
+kind: Package
+metadata:
+  name: {{ include "chart.name" . }} 
+  namespace: {{ .Release.Namespace }}
+spec:
+  network:
+    expose:
+      - service: {{ include "chart.fullname" . }} 
+        podLabels:
+          app.kubernetes.io/name: {{ include "chart.name" . }} 
+        host: {{ include "chart.name" . }} 
+        gateway: tenant 
+        port: {{ .Values.service.port }}
+
+    allow:
+      - direction: Ingress
+        remoteGenerated: Anywhere
+
+      - direction: Egress
+        remoteGenerated: Anywhere
+      
+      - direction: Egress
+        podLabels:
+          app.kubernetes.io/name: {{ include "chart.name" . }} 
+        remoteGenerated: Anywhere
+
+
