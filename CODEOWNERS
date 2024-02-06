@@ -3,5 +3,5 @@
 *.md @defenseunicorns/leapfrogai 
 
 # Additional privileged files
-/CODEOWNERS @jeff-mccoy @mikevanhemert @austenbryan @gerred
+/CODEOWNERS @jeff-mccoy @austenbryan @gerred
 /LICENSE @jeff-mccoy @austenbryan @gerred
