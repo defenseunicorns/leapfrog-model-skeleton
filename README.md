@@ -2,6 +2,15 @@
 
 This Zarf package contains the foundational configuration required to deploy a model backend to a Kubernetes cluster hosting LeapfrogAI.
 
+This repository is a dedicated [skeleton Zarf Package](https://docs.zarf.dev/docs/faq#what-is-a-skeleton-zarf-package). The published skeleton artifact for this repo can be found [here](https://github.com/defenseunicorns/leapfrog-model-skeleton/pkgs/container/packages%2Fleapfrogai%2Fleapfrogai-model).
+
+## Examples
+
+Some example repositories that use this skeleton are:
+
+- [defenseunicorns/llama-cpp-python](https://github.com/defenseunicorns/leapfrogai-backend-llama-cpp-python)
+- [defenseunicorns/whisper](https://github.com/defenseunicorns/leapfrogai-backend-whisper)
+
 ## Publishing a Package
 
 A workflow already automatically deploys a new package at every tag push, but the manual way to do it is as follows:
@@ -23,6 +32,6 @@ zarf package publish . oci://localhost:5000/defenseunicorns/packages/leapfrogai 
 
 # create model backend package using local skeleton
 # this example will use leapfrogai-backend-whisper
-# edit the import-model componenet to use image: localhost:5000/defenseunicorns/packages/leapfrogai/leapfrogai-model:<IMAGE_TAG> 
+# edit the import-model componenet to use image: localhost:5000/defenseunicorns/packages/leapfrogai/leapfrogai-model:<IMAGE_TAG>
 zarf package create --insecure
 ```
