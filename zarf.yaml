@@ -15,17 +15,27 @@ constants:
     value: "###ZARF_PKG_TMPL_IMAGE_REPOSITORY###"
 
 variables:
-  - name: LIMITS_CPU
-    default: "0"
-  - name: LIMITS_MEMORY
-    default: "0"
-  - name: LIMITS_GPU
-    default: "0"
+  - name: GPU_ENABLED
+    description: Optionally turn on GPU inferencing (true/false)
+    default: "false"
+    pattern: "^(true|false)$"
   - name: REQUESTS_CPU
-    default: "0"
+    description: Number of CPU(s) to reserve for the pod
+    default: "1"
   - name: REQUESTS_MEMORY
-    default: "0"
+    description: Amount of memory to reserve for the pod
+    default: "4Gi"
   - name: REQUESTS_GPU
+    description: Must be greater or equal to 1 if GPU_ENABLED is true
+    default: "0"
+  - name: LIMITS_CPU
+    description: Must be greater than or equal to REQUESTS_CPU
+    default: "1"
+  - name: LIMITS_MEMORY
+    description: Must be greater than or equal to REQUESTS_MEMORY
+    default: "20Gi"
+  - name: LIMITS_GPU
+    description: Must be greater than or equal to REQUESTS_GPU
     default: "0"
 
 components:
@@ -36,6 +46,6 @@ components:
       namespace: leapfrogai
       localPath: chart
       releaseName: "###ZARF_PKG_TMPL_NAME###-model"
-      version: 0.3.5
+      version: 0.4.0
     images:
       - "###ZARF_PKG_TMPL_IMAGE_REPOSITORY###:###ZARF_PKG_TMPL_IMAGE_VERSION###"

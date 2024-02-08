@@ -39,16 +39,9 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          # livenessProbe:
-          #   grpc:
-          #     port: 50051
-          #   periodSeconds: 30
-          #   failureThreshold: 6
-          # readinessProbe:
-          #   grpc:
-          #     port: 50051
-          #   periodSeconds: 30
-          #   failureThreshold: 6
+          env:
+            - name: GPU_ENABLED
+              value: {{ (quote .Values.gpuEnabled) | default "false"}}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
