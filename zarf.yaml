@@ -1,7 +1,7 @@
 kind: ZarfPackageConfig
 metadata:
   name: leapfrogai-model
-  version: 0.5.0
+  version: 0.4.1
   description: >
     An awesome model to add to LeapfrogAI
 
@@ -18,7 +18,6 @@ variables:
   - name: GPU_ENABLED
     description: Optionally turn on GPU inferencing (true/false)
     default: "false"
-    prompt: true
     pattern: "^(true|false)$"
   - name: REQUESTS_CPU
     description: Number of CPU(s) to reserve for the pod
@@ -29,7 +28,6 @@ variables:
   - name: REQUESTS_GPU
     description: Must be greater or equal to 1 if GPU_ENABLED is true
     default: "0"
-    prompt: true
   - name: LIMITS_CPU
     description: Must be greater than or equal to REQUESTS_CPU
     default: "1"
@@ -39,7 +37,6 @@ variables:
   - name: LIMITS_GPU
     description: Must be greater than or equal to REQUESTS_GPU
     default: "0"
-    prompt: true
 
 components:
   - name: model
@@ -49,6 +46,6 @@ components:
       namespace: leapfrogai
       localPath: chart
       releaseName: "###ZARF_PKG_TMPL_NAME###-model"
-      version: 0.5.0
+      version: 0.4.0
     images:
       - "###ZARF_PKG_TMPL_IMAGE_REPOSITORY###:###ZARF_PKG_TMPL_IMAGE_VERSION###"
