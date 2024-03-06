@@ -21,19 +21,19 @@ variables:
     pattern: "^(true|false)$"
   - name: REQUESTS_CPU
     description: Number of CPU(s) to reserve for the pod
-    default: "1"
+    default: "0"
   - name: REQUESTS_MEMORY
     description: Amount of memory to reserve for the pod
-    default: "4Gi"
+    default: "0"
   - name: REQUESTS_GPU
     description: Must be greater or equal to 1 if GPU_ENABLED is true
     default: "0"
   - name: LIMITS_CPU
     description: Must be greater than or equal to REQUESTS_CPU
-    default: "1"
+    default: "0"
   - name: LIMITS_MEMORY
     description: Must be greater than or equal to REQUESTS_MEMORY
-    default: "20Gi"
+    default: "0"
   - name: LIMITS_GPU
     description: Must be greater than or equal to REQUESTS_GPU
     default: "0"
